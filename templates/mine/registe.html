@@ -1,0 +1,88 @@
+{% extends 'base/user.html' %}
+{% load static %}
+
+{% block extraStyle %}
+
+    <link rel="stylesheet" href="{% static 'css/mine/registe.css' %}">
+    <script type="text/javascript" src="{% static 'js/user/user.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+
+    <form onsubmit="return pwd_md5()" action="{% url 'App:doRegiste' %}" class="form-horizontal" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="inputPassword" class="control-label">用户名：</label>
+            <div>
+                <input id="u_username" name="username" type="text" class="form-control" placeholder="请输入用户名">
+            </div>
+            <span id="u_info"></span>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="inputPassword" class="control-label">密码：</label>
+            <div>
+                <input id="u_password" name="password" type="password" class="form-control" placeholder="请输入密码">
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="inputPassword" class="control-label">确认密码：</label>
+            <div>
+                <input id="u_confirm_password" name="confirm_password" type="password" class="form-control" placeholder="请再次输入密码">
+            </div>
+            <span id="cp_info"></span>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="inputPassword" class="control-label">邮箱：</label>
+            <div>
+                <input id="u_email" name="email" type="email" class="form-control" placeholder="请输入邮箱">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword" class="control-label">电话：</label>
+            <div>
+                <input id="u_phone" name="phone" type="text" class="form-control" placeholder="请输入电话">
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="inputPassword" class="control-label">头像：</label>
+            <div>
+                <input id="u_icon" name="icon" type="file" class="form-control" >
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div>
+                <input  name="sex" type="radio"  value="False">男
+                <input  name="sex" type="radio"  value="True">女
+                <input  name="sex" type="radio"  value="None">暂不设置
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-success btn-block" value="注册">
+
+    </form>
+
+
+
+{% endblock %}
+
+
+

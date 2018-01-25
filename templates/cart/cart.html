@@ -1,0 +1,108 @@
+{% extends 'main/main.html' %}
+{% load static %}
+
+
+{% block extraStyle %}
+    {{ block.super }}
+
+    <link rel="stylesheet" href="{% static 'css/cart/cart.css' %}">
+    <script type="text/javascript" src="{% static 'js/cart/cart.js' %}"></script>
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div id="cart">
+        <h3>购物车</h3>
+        <div class="full">
+
+            <section>
+
+
+                <ul>
+                    <li>
+                        收&nbsp;货&nbsp;人: <span></span>
+                    </li>
+                    <li>
+                        电&nbsp;&nbsp;&nbsp;话: <span></span>
+                    </li>
+                    <li>
+                        收货地址: <span>西部硅谷A</span>
+                    </li>
+                    <p>
+                        <a href="#">修改&gt;</a>
+                    </p>
+                </ul>
+
+                <div class="bill">
+
+                    <p>闪送超市</p>
+                    <p>满100减99</p>
+                    <a href="#">凑单专区</a>
+                </div>
+
+                <div class="delivery">
+
+                    <span>收货时间</span>
+                    <span>一小时预定</span>
+                    <a href="#">可送达&gt;</a>
+                </div>
+
+                <div class="delivery">
+
+                    <span>backup:</span>
+                    <input type="text" placeholder="please message">
+                </div>
+
+
+                <menu>
+                    <ul>
+{#                                               goods代表的是cart中的一条数据                #}
+                        {% for cart in cart_list %}
+                            <li class="menuList" goods_id="{{ cart.id }}">
+                                <div class="confirm">
+                                    <span class="ischose">
+                                        {% if cart.cart_check %}
+                                            <span style="display: block">
+                                             √
+                                            </span>
+                                            {% else %}
+                                            <span style="display: none">
+                                             √
+                                            </span>
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                <a href="#">
+                                    <img src="{{ cart.cart_goods.productimg }}"/>
+                                    <p>{{ cart.cart_goods.productlongname }}</p>
+                                    <span></span>
+                                </a>
+                                <section>
+                                    <button class="subShopping" goods_id="{{ cart.id }}">-</button>
+                                    <span>{{ cart.cart_num }}</span>
+                                    <button class="addShopping" goods_id="{{ cart.id }}">+</button>
+                                </section>
+                            </li>
+                        {% endfor %}
+
+                        <li class="payTheBill">
+                            <div class="confirm"><span><span></span></span></div>
+                            <p><span>全选</span><span>共计:</span><span>总价</span></p>
+                            <a id="ok">选好了</a>
+                        </li>
+
+                    </ul>
+                </menu>
+
+
+            </section>
+
+
+        </div>
+
+
+    </div>
+
+{% endblock %}

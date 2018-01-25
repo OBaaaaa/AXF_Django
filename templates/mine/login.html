@@ -1,0 +1,20 @@
+{% extends 'base/user.html' %}
+{% load static %}
+{% block extraStyle %}
+{{ block.super }}
+    <script type="text/javascript" src="{% static 'js/user/login.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <form onsubmit="return pwd_md5()" action="{% url 'App:doLogin' %}" method="post">
+        {% csrf_token %}
+        <span></span> <input type="text" name="username" placeholder="请输入用户名"><br>
+        <span></span> <input id="u_password" type="password" name="password" placeholder="请输入密码"><br>
+
+        <span>{{ login_res }}</span><br>
+        <input type="submit" value="登录">
+
+    </form>
+
+{% endblock %}

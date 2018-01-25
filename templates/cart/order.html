@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load  static %}
+
+{% block extraStyle %}
+    <script type="text/javascript" src="{% static 'js/cart/pay.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <p>{{ order_id }}</p>
+    <ul>
+    {% for cart in cart_list %}
+        <img src="{{ cart.cart_goods.productimg }}" >
+        <li>{{ cart.cart_goods.productlongname }}</li>
+    {% endfor %}
+
+    </ul>
+    <button  class="pay" order_id = {{ order_id }}>支付</button>
+
+{% endblock %}

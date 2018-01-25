@@ -1,0 +1,32 @@
+body{
+    padding: 0.5rem;
+}
+
+.control-label{
+    width: 2rem;
+}
+.form-control{
+    width: 6rem;
+}
+
+.form-horizontal .form-group label{
+    float: left;
+    line-height: 1rem;
+}
+
+.form-horizontal .form-group div{
+    float: left;
+}
+.form-horizontal .form-group span{
+    /*float: left;*/
+    clear: both;
+    width: 10rem;
+}
+
+.form-horizontal .form-group .user_check_success{
+    color: green;
+}
+
+.form-horizontal .form-group .user_check_fail{
+    color: red;
+}

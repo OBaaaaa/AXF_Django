@@ -1,0 +1,173 @@
+{% extends "main/main.html" %}
+{% load static %}
+{% block extraStyle %}
+    {{ block.super }}
+
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+    <script type="text/javascript" src="{% static 'js/home/home.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="home">
+
+        <div id="topSwiper" class="swiper-container">
+
+            <div class="swiper-wrapper">
+
+                {% for axf_wheel in axf_wheels %}
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="{{ axf_wheel.img }}" alt="{{ axf_wheel.name }}">
+                        </a>
+                    </div>
+
+
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="topMenu">
+
+            <nav>
+
+                <ul>
+                    {% for axf_nav in axf_navs %}
+                        <li>
+
+                            <img src="{{ axf_nav.img }}" alt="{{ axf_nav.name }}">
+                            <span>{{ axf_nav.name }}</span>
+
+                        </li>
+                    {% endfor %}
+
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+        <div id="swiperMenu">
+
+            <ul class="swiper-wrapper">
+
+                {% for axf_mustbuy in axf_mustbuys %}
+
+                    <li class="swiper-slide">
+
+                        <img src="{{ axf_mustbuy.img }}" alt="{{ axf_mustbuy.name }}">
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <div class="CVS">
+
+            <h2>
+                <img src="{{ axf_shops_first.img }}" alt="{{ axf_shops_first.name }}">
+            </h2>
+
+            <fieldset>
+                {% for second in axf_shop_second %}
+                    <a href="#">
+                        <img src="{{ second.img }}" alt="{{ second.name }}">
+                    </a>
+                {% endfor %}
+            </fieldset>
+
+            <ul>
+                {% for third in axf_shop_third %}
+                    <li>
+                        <img src="{{ third.img }}" alt="{{ third.name }}">
+                        <span>{{ third.name }}</span>
+                    </li>
+                {% endfor %}
+
+
+            </ul>
+
+            <ol>
+                {% for fourth in axf_shop_fourth %}
+                    <li>
+                        <a href="#">
+                            <img src="{{ fourth.img }}" alt="{{ fourth.name }}">
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ol>
+
+
+        </div>
+
+        <div class="mainInfo">
+            {% for axf_mainshow in axf_mainshows %}
+            <section>
+                <h3>
+                    {{ axf_mainshow.name }}
+                    <a href="#"><span>更多</span></a>
+                    <span></span>
+
+                </h3>
+
+
+                <div>
+                    <a href="#">
+                        <img src="{{ axf_mainshow.img }}" alt="{{ axf_mainshow.name }}">
+                    </a>
+                </div>
+
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="{{ axf_mainshow.img1 }}" alt="{{ axf_mainshow.longname1 }}">
+                            <p class="description">{{ axf_mainshow.longname1 }}</p>
+                            <span>￥{{ axf_mainshow.price1 }}</span>
+                            <s>{{ axf_mainshow.marketprice1 }}</s>
+
+                        </a>
+                        <button>
+                            <span>+</span>
+                        </button>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ axf_mainshow.img2 }}" alt="{{ axf_mainshow.longname2 }}">
+                            <p class="description">{{ axf_mainshow.longname2 }}</p>
+                            <span>￥{{ axf_mainshow.price2 }}</span>
+                            <s>{{ axf_mainshow.marketprice2 }}</s>
+                        </a>
+                         <button>
+                            <span>+</span>
+                        </button>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ axf_mainshow.img2 }}" alt="{{ axf_mainshow.longname2 }}">
+                            <p class="description">{{ axf_mainshow.longname3 }}</p>
+                            <span>￥{{ axf_mainshow.price3 }}</span>
+                            <s>{{ axf_mainshow.marketprice3 }}</s>
+                        </a>
+                         <button>
+                            <span>+</span>
+                        </button>
+                    </li>
+                </ul>
+
+            </section>
+            {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+{% endblock %}
